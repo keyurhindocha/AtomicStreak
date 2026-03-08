@@ -1,0 +1,9 @@
+# Local secrets
+supabase-config.local.js
+
+# OS / editor artifacts
+.DS_Store
+*.swp
+
+# Logs
+*.log

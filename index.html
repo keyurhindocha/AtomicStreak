@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AtomicStreak</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-a"></div>
+  <div class="bg-shape bg-shape-b"></div>
+
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">Identity-based habits</p>
+      <h1>Never Break the Chain</h1>
+      <p class="subhead">Track daily reps, protect your streaks, and compound progress one checkmark at a time.</p>
+      <div class="today-card">
+        <span>Today</span>
+        <strong id="todayLabel"></strong>
+      </div>
+    </header>
+
+    <section class="panel status-panel" id="statusPanel" aria-live="polite"></section>
+
+    <section class="panel add-panel">
+      <h2>Add a Habit</h2>
+      <form id="habitForm" class="habit-form">
+        <label>
+          Habit name
+          <input id="habitName" type="text" maxlength="60" placeholder="Write 500 words" required />
+        </label>
+        <label>
+          Identity cue
+          <input id="habitIdentity" type="text" maxlength="90" placeholder="I am a consistent writer" />
+        </label>
+        <button id="addHabitBtn" type="submit">Add Habit</button>
+      </form>
+    </section>
+
+    <section class="panel summary" id="summaryPanel" aria-live="polite"></section>
+
+    <section class="habit-list" id="habitList"></section>
+  </main>
+
+  <template id="habitTemplate">
+    <article class="panel habit-card">
+      <div class="habit-top">
+        <div>
+          <h3 class="habit-title"></h3>
+          <p class="habit-identity"></p>
+        </div>
+        <button class="delete-btn" title="Delete habit" aria-label="Delete habit">Delete</button>
+      </div>
+
+      <div class="habit-actions">
+        <button class="check-btn">Mark done today</button>
+      </div>
+
+      <div class="metrics"></div>
+      <div class="chain-strip"></div>
+    </article>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.local.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
